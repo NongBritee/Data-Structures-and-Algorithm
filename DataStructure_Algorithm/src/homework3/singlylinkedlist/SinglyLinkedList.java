@@ -17,18 +17,22 @@ public class SinglyLinkedList {
 
 
 	public void readData() {
-		this.num_node++;
-		System.out.print("Enter data : ");
+		System.out.print("Enter number of node : ");
 		Scanner sc = new Scanner(System.in);
-		int data = sc.nextInt();
-		Node currentNode = header;
-		while(currentNode.getNext() != tailer ){
-			currentNode = currentNode.getNext();
-		}
+		num_node = sc.nextInt();
 		
-		Node newNode = new Node(data);
-		currentNode.setNext(newNode);
-		newNode.setNext(tailer);
+		for( int i=0; i<num_node; i++){
+			Node currentNode = header;
+			while(currentNode.getNext() != tailer ){
+				currentNode = currentNode.getNext();
+			}
+			
+			System.out.printf("Enter data of node %d : ", i+1);
+			int data = sc.nextInt();
+			Node newNode = new Node(data);
+			currentNode.setNext(newNode);
+			newNode.setNext(tailer);
+		}
 	}
 
 	public void showData(int numInLine) {
@@ -92,10 +96,6 @@ public class SinglyLinkedList {
 	public static void main(String[] args) {
 		 SinglyLinkedList sll = new SinglyLinkedList();
 //		CircularlyLinkedList sll = new CircularlyLinkedList();
-		sll.readData();
-		sll.readData();
-		sll.readData();
-		sll.readData();
 		sll.readData();
 		sll.deleteData(5);
 		sll.showData(2);
