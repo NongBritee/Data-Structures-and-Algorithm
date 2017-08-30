@@ -3,8 +3,7 @@ package homework3.singlylinkedlist;
 import java.util.Scanner;
 
 public class SinglyLinkedList {
-	// คลาสนี้เก็บข้อมูลใน linked list มี head ระบุ node แรก
-	// มี tail ระบุ node สุดท้าย
+	
 	private Node header;
 	private Node tailer;
 	private int num_node;
@@ -17,9 +16,6 @@ public class SinglyLinkedList {
 	}
 
 
-	/***
-	 * ReadData() 1)อ่านข้อมูลจาก keyboard 2)สร้าง Node และเชื่อม linked list
-	 */
 	public void readData() {
 		this.num_node++;
 		System.out.print("Enter data : ");
@@ -36,7 +32,6 @@ public class SinglyLinkedList {
 	}
 
 	public void showData(int numInLine) {
-		// แก้ให้ถูกต้องด้วย
 		int numOfLines = this.num_node / numInLine;
 		Node currentNode = this.header;
 		for (int j = 0; j < numOfLines; j++) {
