@@ -16,11 +16,6 @@ public class SinglyLinkedList {
 		num_node = 0;
 	}
 
-	/*
-	 * Methods readData() : อ่านข้อมูลจาก keyboard เก็บใน linked list ทาง tail
-	 * showData() : แสดงข้อมูลบนหน้าจอ จากตัวแรก(head)จนถึงตัวสุดท้าย(tail)
-	 * findAverage() : คำนวณค่าเฉลี่ยของข้อมูลทั้งหมดใน linked list
-	 */
 
 	/***
 	 * ReadData() 1)อ่านข้อมูลจาก keyboard 2)สร้าง Node และเชื่อม linked list
