@@ -21,19 +21,19 @@ public class SinglyLinkedList {
 		System.out.print("Enter data : ");
 		Scanner sc = new Scanner(System.in);
 		int data = sc.nextInt();
-		Node currentNode = this.header;
-		while(currentNode.getNext() != this.tailer ){
+		Node currentNode = header;
+		while(currentNode.getNext() != tailer ){
 			currentNode = currentNode.getNext();
 		}
 		
 		Node newNode = new Node(data);
 		currentNode.setNext(newNode);
-		newNode.setNext(this.tailer);
+		newNode.setNext(tailer);
 	}
 
 	public void showData(int numInLine) {
-		int numOfLines = this.num_node / numInLine;
-		Node currentNode = this.header;
+		int numOfLines = num_node / numInLine;
+		Node currentNode = header.getNext();
 		for (int j = 0; j < numOfLines; j++) {
 			for (int k = 0; k < numInLine; k++) {
 				System.out.print(currentNode.getData() + ",\t");
@@ -41,7 +41,7 @@ public class SinglyLinkedList {
 			}
 			System.out.println();
 		}
-		while (currentNode != null) {
+		while (currentNode != tailer) {
 			System.out.print(currentNode.getData() + ",\t");
 			currentNode = currentNode.getNext();
 		}
@@ -55,7 +55,7 @@ public class SinglyLinkedList {
 			avg += currentNode.getData();
 			currentNode = currentNode.getNext();
 		}
-		return avg/this.num_node;
+		return avg/(double)this.num_node;
 	}
 	
 	public int findMinimum(){
@@ -68,6 +68,23 @@ public class SinglyLinkedList {
 		return min;
 	}
 
+	public void deleteData(int data){
+		Node currentNode = header;
+		boolean foundNode = false;
+		for(int i=0; i<num_node; i++){
+			if(currentNode.getNext().getData() == data){
+				foundNode = true;
+				break;
+			}
+			currentNode = currentNode.getNext();
+		}
+
+		if(foundNode){
+			currentNode.setNext(currentNode.getNext().getNext());
+			num_node--;
+		}
+	}
+	
 	/**
 	 * @param args
 	 *            the command line arguments
@@ -80,6 +97,7 @@ public class SinglyLinkedList {
 		sll.readData();
 		sll.readData();
 		sll.readData();
+		sll.deleteData(5);
 		sll.showData(2);
 
 		 System.out.println("Average is " + sll.findAverage());
